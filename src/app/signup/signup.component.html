@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>User Registraion Form - W3Adda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="app.js"></script>
+</head>
+<body>
+<div ng-app = "myApp" class = "container" style="width:550px">
+  <div style="text-align:center;">
+    <h3><b>User Registraion Form</b></h3>
+  </div>
+  <div ng-controller = "RegisterController">
+
+    <form role = "form" class="well" ng-hide="ifSearchUser">
+      <div class = "form-group">
+        <input type = "text" id = "name" class = "form-control" placeholder = "First Name " ng-model = "newuser.name">
+      </div>
+      <div class = "form-group">
+        <input type = "email" id = "email" class = "form-control" placeholder = "Last Name " ng-model = "newuser.email">
+      </div>
+      <div class = "form-group">
+        <input type = "password" id = "password" class = "form-control" placeholder = "Email" ng-model = "newuser.password">
+      </div>
+      <div class = "form-group">
+        <input type = "text" id = "phone" class = "form-control" placeholder = "Phone Number" ng-model = "newuser.phone">
+      </div>
+      <div class = "form-group">
+        <input type = "text" id = "phone" class = "form-control" placeholder = "Address" ng-model = "newuser.phone">
+      </div>
+      <br>
+      <input type="hidden" ng-model="newuser.id">
+      <input type="button" class="btn btn-primary" ng-click="saveUser()" class="btn btn-primary" value = "SignUp">
+    </form>
+
+  </div>
+</div>
+</body>
+</html>
