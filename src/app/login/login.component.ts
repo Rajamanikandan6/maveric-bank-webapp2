@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { User } from '../user';
 
@@ -11,15 +12,30 @@ import { User } from '../user';
 export class LoginComponent implements OnInit {
 
   user = new User();
-  constructor(private _service : LoginService) { }
+  constructor(private _service : LoginService,private router:Router) { }
+
+
 
   ngOnInit(): void {
   }
 
   userLogin(){
+  console.log("11111111");
   this._service.loginUserFromClient(this.user).subscribe(
-    data => console.log("response received"),
-    error => console.log("error occurred")
+    data => {
+      console.log("response received")
+      localStorage.setItem('token',data.token)
+      localStorage.setItem('user',data.user.firstName)
+      this.router.navigate(['/account']);
+    },
+    error => {
+      console.log("error occurred",error.error.message)
+      var div=<HTMLElement> document.querySelector(".javaerror");
+      div.innerHTML="ERROR: "+error.error.message;
+    
+    }
+
+
   );
   }
 

@@ -8,9 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
+
   constructor(private _http:HttpClient) { }
 
   public loginUserFromClient(user :User):Observable<any>{
-    return this._http.post<any>("localhost:8000/api/v1/auth/login",user)
+
+    return this._http.post<any>("http://localhost:3000/api/v1/auth/login",user)
   }
 }
