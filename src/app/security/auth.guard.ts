@@ -13,7 +13,7 @@ constructor(private authService:AuthService,private router:Router){
 }
 
     canActivate() {
-        // localStorage.clear();
+       // localStorage.clear();
         if(this.authService.isLoggedIn()){
             return true;
         }

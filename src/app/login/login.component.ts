@@ -20,11 +20,11 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin(){
-  console.log("11111111");
   this._service.loginUserFromClient(this.user).subscribe(
     data => {
       console.log("response received")
       localStorage.setItem('token',data.token)
+      localStorage.setItem('userId',data.user.id)
       localStorage.setItem('user',data.user.firstName)
       this.router.navigate(['/account']);
     },

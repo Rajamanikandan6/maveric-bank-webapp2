@@ -13,6 +13,6 @@ export class LoginService {
 
   public loginUserFromClient(user :User):Observable<any>{
 
-    return this._http.post<any>("http://localhost:3000/api/v1/auth/login",user)
+    return this._http.post<any>("http://localhost:8000/api/v1/auth/login",user)
   }
 }
