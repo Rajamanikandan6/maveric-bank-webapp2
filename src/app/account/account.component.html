@@ -6,12 +6,13 @@
     <div class="container">
         <div class="card shadow mt-5 mb-5">
             <div class="card-header text-center">
-                <b>Admin Details Page</b>
+                <b>Account Details</b>
             </div>
-            <div class="card-body">
-                <p>Sreeharsha K A Jois</p>
-                <p>Saving Account : 23234567</p>
-                <p>Closing Balance</p>
+            <div class="card-body"> 
+                <p *ngIf="user.firstName">{{user.firstName}} {{user.lastName}} {{user.middleName}}</p>
+                <p *ngIf="account._id">Account No : {{account._id}}</p>
+                <p *ngIf="account.type">{{account.type}} Account</p>
+                <p *ngIf="account.balance.amount">Closing Balance : {{account.balance.amount}}</p>
             </div>
         </div>
         <div class="card shadow mt-5 mb-5">
@@ -25,24 +26,13 @@
                         <th scope="col">Deposit</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let transaction of account.transaction; let transactionDet=index">
                       <tr>
-                        <td>232323323</td>
-                        <td>02-05-2022</td>
-                        <td></td>
-                        <td>5000</td>
-                      </tr>
-                      <tr>
-                        <td>232323323</td>
-                        <td>02-05-2022</td>
-                        <td>5000</td>
-                        <td>5000</td>
-                      </tr>
-                      <tr>
-                        <td>232323323</td>
-                        <td>02-05-2022</td>
-                        <td>5000</td>
-                        <td>5000</td>
+                        <td>{{transaction._id}}</td>
+                        <td>{{transaction.createdAt}}</td>
+
+                        <td>{{transaction.type =="DEBIT" ? transaction.amount : ""}}</td>
+                        <td>{{transaction.type =="CREDIT" ? transaction.amount : ""}}</td>
                       </tr>
                     </tbody>
                   </table>

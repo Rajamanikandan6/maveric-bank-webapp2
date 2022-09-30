@@ -1,59 +1,56 @@
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>User Registraion Form - W3Adda</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <script src="app.js"></script>
-</head>
-<body>
-<div ng-app = "myApp" class = "container" style="width:550px">
-  <div style="text-align:center;">
-    <h3><b>User Registraion Form</b></h3>
-  </div>
+<app-header></app-header>
+<div ng-app = "myApp" class = "container-fluid">
   <div class = "form-group">
     <div class="javaerror" style="background-color: #ef0606;">
     </div>
     <div class="javasuccess" style="background-color: #0bbd4c;">
     </div>
     </div>
-  <div ng-controller = "RegisterController">
+   
+    <div class="row">
+      <div class="div_class">
+        <form #loginform="ngForm" (ngSubmit)="userSignup()">
+          <header class="text-center text-black pt-3 pb-2">
+          </header>
 
-    <form #loginform="ngForm" (ngSubmit)="userSignup()">
-      <div class = "form-group">
-        <input type = "text" id = "name" class = "form-control" placeholder = "First Name " name="firstName" [(ngModel)] ="user.firstName">
+    
+      <div class = "form-group my-4">
+        <input type = "text" id = "name" class = "form-control" placeholder = "*First Name " name="firstName" [(ngModel)] ="user.firstName">
       </div>
-      <div class = "form-group">
-        <input type = "text" id = "Lname" class = "form-control" placeholder = "Last Name " name="lastName" [(ngModel)] ="user.lastName">
+      <div class = "form-group my-4">
+        <input type = "text" id = "Lname" class = "form-control" placeholder = "*Last Name " name="lastName" [(ngModel)] ="user.lastName">
       </div>
-      <div class = "form-group">
+      <div class = "form-group my-4">
         <input type = "text" id = "Mname" class = "form-control" placeholder = "Middle Name " name="middleName" [(ngModel)] ="user.middleName">
       </div>
-      <div class = "form-group">
-        <input type = "email" id = "email" class = "form-control" placeholder = "Email" name="email" [(ngModel)] = "user.email">
+      <div class = "form-group my-4">
+        <input type = "email" id = "email" class = "form-control" placeholder = "*Email" name="email" [(ngModel)] = "user.email">
       </div>
-      <div class = "form-group">
-        <input type = "text" id = "phone" class = "form-control" placeholder = "phone" name="phoneNumber" [(ngModel)] = "user.phoneNumber">
+      <div class = "form-group my-4">
+        <input type = "text" id = "phone" class = "form-control" placeholder = "*phone" name="phoneNumber" [(ngModel)] = "user.phoneNumber">
       </div>
-      <div class = "form-group">
-        <input type = "text" id = "Address" class = "form-control" placeholder = "Address" name="address" [(ngModel)] = "user.address">
+      <div class = "form-group my-4">
+        <input type = "text" id = "Address" class = "form-control" placeholder = "*Address" name="address" [(ngModel)] = "user.address">
       </div>
-      <div class = "form-group">
-        <input type = "text" id = "date" class = "form-control" placeholder = "Date of Birth" name="dateOfBirth" [(ngModel)] ="user.dateOfBirth">
+      <div class = "form-group my-4">
+        <input type = "text" id = "date" class = "form-control" placeholder = "*Date of Birth" name="dateOfBirth" [(ngModel)] ="user.dateOfBirth">
       </div>
-      <div class = "form-group">
-        <input type = "text" id = "gender" class = "form-control" placeholder = "Gender" name="gender" [(ngModel)] ="user.gender">
+      <div class="form-group my-4">  <select class="form-control" name="gender" [(ngModel)] ="user.gender">
+        <option value="" selected>--Select Gender --</option> 
+        <option value="MALE">MALE</option>
+          <option value="FEMALE">FEMALE</option></select>
+        </div>
+      <!-- <div class = "form-group my-4">
+        <input type = "text" id = "gender" class = "form-control" placeholder = "*Gender" name="gender" [(ngModel)] ="user.gender">
+      </div> -->
+      <div class = "form-group my-4p">
+        <input type = "password" id = "password" class = "form-control" placeholder = "*password" name="password" [(ngModel)] ="user.password">
       </div>
-      <div class = "form-group">
-        <input type = "password" id = "password" class = "form-control" placeholder = "password" name="password" [(ngModel)] ="user.password">
-      </div>
-      <br>
-      <button type="submit" class="btn btn-primary" >SignUp</button>
+      <button type="submit" class="btn btn-primary" id="btn_signup">SignUp</button>
+      <hr class="hr my-3">
+        
     </form>
-
   </div>
 </div>
-</body>
-</html>
+</div>
+<app-footer></app-footer>

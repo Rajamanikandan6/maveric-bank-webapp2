@@ -12,7 +12,6 @@ export class AccountService {
   constructor(private _http:HttpClient) { }
 
   public accountDetailsFromClient():Observable<any>{
-
     var id = localStorage.getItem("userId");
     return this._http.get<any>("http://localhost:8000/api/v1/customers/"+id+"/customerAccounts");
   }
@@ -25,5 +24,9 @@ export class AccountService {
 
   public getTransaction(id:string):Observable<any>{
     return this._http.get<any>("http://localhost:8000/api/v1/accounts/"+id+"/transaction"); 
+  }
+
+  public getUser(id:string):Observable<any>{
+    return this._http.get<any>("http://localhost:8000/api/v1/users/"+id);
   }
 }

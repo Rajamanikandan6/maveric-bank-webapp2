@@ -8,7 +8,7 @@ export class Account {
     createdAt:Date;
     updatedAt:Date;
     balance:Balance;
-    Transaction:Transaction[];
+    transaction:Transaction[];
 
     constructor(){
     }

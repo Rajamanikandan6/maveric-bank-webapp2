@@ -1,5 +1,5 @@
 export class Balance {
-    _id: string;
+    id: string;
   amount:string;
   currency: string;
   accountId: string;
