@@ -1,4 +1,4 @@
-.container-fluid
+#container_login
 {
     width:40%;
     border-style: solid;
@@ -22,4 +22,9 @@ input{
 #btn_login{
     margin-left: 50%;
     box-shadow: 3px 3px 3px gray;
+}
+
+.main_div{
+    height: 100%;
+    overflow: hidden;
 }

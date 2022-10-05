@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Account } from '../account';
-import { AccountService } from '../account.service';
+import { AccountService } from '../services/account.service';
 import { User } from '../user';
 
 @Component({
@@ -15,10 +15,61 @@ export class AccountComponent implements OnInit {
   user = new User;
   constructor(private service : AccountService,private router:Router) { }
 
+  page = 0;
+  pageSize=2;
+
   ngOnInit(): void {
     this.getAccountDetails();
     const user_id=localStorage.getItem("userId") == null ? "" : localStorage.getItem("userId");
     this.getUserDetails(user_id!);
+  }
+
+  previousTransaction(): void {
+    if(this.page > 0){
+      this.page=this.page-1;
+    this.service.getTransaction(this.account._id,this.page,this.pageSize).subscribe(
+      data => { 
+        console.log("working===");
+        this.account.transaction=data;
+        var transHtml="";
+        for(var i=0;i< this.account.transaction.length;i++){
+        
+        transHtml="<tr><td>"+this.account.transaction[i]._id+"</td><td>"+this.account.transaction[i].createdAt+"</td>";
+        transHtml +=" <td>"+this.account.transaction[i].type== 'DEBIT' ? this.account.transaction[i].amount : "" +"</td>";
+        transHtml += "<td>"+this.account.transaction[i].type== 'CREDIT' ? this.account.transaction[i].amount : "" +"</td></tr>";
+        }
+
+        const table = document.getElementById("transaction");
+        if (table != null) {
+          table.innerHTML="";
+          table.innerHTML = transHtml;
+        }
+      }
+  )
+    }
+  }
+
+  nextTransaction(): void {
+    this.page=this.page+1;
+    this.service.getTransaction(this.account._id,this.page,this.pageSize).subscribe(
+      data => { 
+        console.log("working===");
+        this.account.transaction=data;
+        var transHtml="";
+        for(var i=0;i< this.account.transaction.length;i++){
+        
+        transHtml="<tr><td>"+this.account.transaction[i]._id+"</td><td>"+this.account.transaction[i].createdAt+"</td>";
+        transHtml +=" <td>"+this.account.transaction[i].type== 'DEBIT' ? this.account.transaction[i].amount : "" +"</td>";
+        transHtml += "<td>"+this.account.transaction[i].type== 'CREDIT' ? this.account.transaction[i].amount : "" +"</td></tr>";
+        }
+
+        const table = document.getElementById("transaction");
+        if (table != null) {
+          table.innerHTML="";
+          table.innerHTML = transHtml;
+        }
+      }
+  )
   }
 
   
@@ -38,7 +89,7 @@ export class AccountComponent implements OnInit {
         
 
        })
-        this.getTransaction(data[0]._id).then((data:any)=>{
+        this.getTransaction(data[0]._id,0,2).then((data:any)=>{
           console.log("test===>"+data[0]._id);
           this.account.transaction=data;
       })
@@ -71,9 +122,9 @@ export class AccountComponent implements OnInit {
       })
   }
 
-  getTransaction(id:string){
+  getTransaction(id:string,page:number,pageSize:number){
     return new Promise(resolve=>{
-    this.service.getTransaction(id).subscribe(
+    this.service.getTransaction(id,page,pageSize).subscribe(
       (data:Account) => { console.log(data);
         resolve(data);} ,
       error => {return error} 

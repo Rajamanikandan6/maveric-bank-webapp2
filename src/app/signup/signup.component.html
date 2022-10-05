@@ -1,5 +1,6 @@
 <app-header></app-header>
-<div ng-app = "myApp" class = "container-fluid">
+<hr>
+<div ng-app = "myApp" class = "container-fluid" id="container_login">
   <div class = "form-group">
     <div class="javaerror" style="background-color: #ef0606;">
     </div>
@@ -10,8 +11,8 @@
     <div class="row">
       <div class="div_class">
         <form #loginform="ngForm" (ngSubmit)="userSignup()">
-          <header class="text-center text-black pt-3 pb-2">
-          </header>
+          <br>
+        <br>
 
     
       <div class = "form-group my-4">
@@ -35,7 +36,8 @@
       <div class = "form-group my-4">
         <input type = "text" id = "date" class = "form-control" placeholder = "*Date of Birth" name="dateOfBirth" [(ngModel)] ="user.dateOfBirth">
       </div>
-      <div class="form-group my-4">  <select class="form-control" name="gender" [(ngModel)] ="user.gender">
+      <div class="form-group my-4"> 
+         <select class="form-control" name="gender" [(ngModel)] ="user.gender">
         <option value="" selected>--Select Gender --</option> 
         <option value="MALE">MALE</option>
           <option value="FEMALE">FEMALE</option></select>
@@ -46,7 +48,12 @@
       <div class = "form-group my-4p">
         <input type = "password" id = "password" class = "form-control" placeholder = "*password" name="password" [(ngModel)] ="user.password">
       </div>
+      <br>
       <button type="submit" class="btn btn-primary" id="btn_signup">SignUp</button>
+      <div class="text-center">
+        <a href="/">Login</a>, if you have account 
+       </div> 
+       <br>
       <hr class="hr my-3">
         
     </form>

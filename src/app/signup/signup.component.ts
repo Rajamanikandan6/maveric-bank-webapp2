@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SignupService } from '../signup.service';
+import { SignupService } from '../services/signup.service';
 import { User } from '../user';
 
 @Component({

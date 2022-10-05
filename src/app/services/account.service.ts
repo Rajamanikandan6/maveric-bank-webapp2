@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Account } from './account';
+import { Account } from '../account';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,8 @@ export class AccountService {
 
   }
 
-  public getTransaction(id:string):Observable<any>{
-    return this._http.get<any>("http://localhost:8000/api/v1/accounts/"+id+"/transaction"); 
+  public getTransaction(id:string,page:number,pageSize:number):Observable<any>{
+    return this._http.get<any>("http://localhost:8000/api/v1/accounts/"+id+"/transaction?page="+page+"&pageSize="+pageSize); 
   }
 
   public getUser(id:string):Observable<any>{
