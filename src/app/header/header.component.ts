@@ -12,9 +12,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router) {
     // on route change to '/login', set the variable showHead to false
     router.events.subscribe(event => {
-        console.log("urlBefore====>",event);
         if (event instanceof NavigationEnd) {
-          console.log("url====>",event['url']);
           if (event['url'] == '/' || event['url'] == '/signup' ) {
             this.showLogout = false;
           } else {

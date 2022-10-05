@@ -22,14 +22,12 @@ export class LoginComponent implements OnInit {
   userLogin(){
   this._service.loginUserFromClient(this.user).subscribe(
     data => {
-      console.log("response received")
       localStorage.setItem('token',data.token)
       localStorage.setItem('userId',data.user.id)
       localStorage.setItem('user',data.user.firstName)
       this.router.navigate(['/account']);
     },
     error => {
-      console.log("error occurred",error.error.message)
       var div=<HTMLElement> document.querySelector(".javaerror");
       div.innerHTML="ERROR: "+error.error.message;
     

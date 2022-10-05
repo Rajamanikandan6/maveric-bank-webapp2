@@ -6,7 +6,6 @@ import { Observable } from "rxjs";
 export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const token = localStorage.getItem("token");
-        // console.log("testUrl===>"+req.url.search("customerAccounts")+" url :"+req.url);
         if (!token || req.url.search("/auth/login") > 0 || req.url.search("/auth/signup") > 0  ) {
             return next.handle(req);
           }

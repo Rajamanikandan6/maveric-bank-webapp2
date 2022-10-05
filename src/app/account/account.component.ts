@@ -29,7 +29,6 @@ export class AccountComponent implements OnInit {
       this.page=this.page-1;
     this.service.getTransaction(this.account._id,this.page,this.pageSize).subscribe(
       data => { 
-        console.log("working===");
         this.account.transaction=data;
         var transHtml="";
         for(var i=0;i< this.account.transaction.length;i++){
@@ -53,7 +52,6 @@ export class AccountComponent implements OnInit {
     this.page=this.page+1;
     this.service.getTransaction(this.account._id,this.page,this.pageSize).subscribe(
       data => { 
-        console.log("working===");
         this.account.transaction=data;
         var transHtml="";
         for(var i=0;i< this.account.transaction.length;i++){
@@ -77,9 +75,7 @@ export class AccountComponent implements OnInit {
   getAccountDetails(){
     this.service.accountDetailsFromClient().subscribe(
       data => { 
-        console.log("account======>"+data[0].type);
         this.getAccBalance(data[0]._id).then((data:any)=>{
-         console.log("test===>"+data._id);
          this.account.balance=data.balance;
          this.account._id=data._id;
          this.account.type=data.type;
@@ -90,7 +86,6 @@ export class AccountComponent implements OnInit {
 
        })
         this.getTransaction(data[0]._id,0,2).then((data:any)=>{
-          console.log("test===>"+data[0]._id);
           this.account.transaction=data;
       })
       
@@ -104,7 +99,7 @@ export class AccountComponent implements OnInit {
 
   getUserDetails(user_id:string){
     this.service.getUser(user_id).subscribe(
-      (data:User) => {console.log(data);
+      (data:User) => {
       this.user.firstName=data.firstName;
       this.user.lastName=data.lastName;
       this.user.middleName=data.middleName;
@@ -115,7 +110,7 @@ export class AccountComponent implements OnInit {
     getAccBalance(id:string){
       return new Promise(resolve=>{
     this.service.getAccountAndBalance(id).subscribe(
-     (data:Account) => { console.log(data);
+     (data:Account) => {
       resolve(data);} 
      
     );
@@ -125,7 +120,7 @@ export class AccountComponent implements OnInit {
   getTransaction(id:string,page:number,pageSize:number){
     return new Promise(resolve=>{
     this.service.getTransaction(id,page,pageSize).subscribe(
-      (data:Account) => { console.log(data);
+      (data:Account) => {
         resolve(data);} ,
       error => {return error} 
       
