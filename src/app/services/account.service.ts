@@ -29,4 +29,7 @@ export class AccountService {
   public getUser(id:string):Observable<any>{
     return this._http.get<any>("http://localhost:8000/api/v1/users/"+id);
   }
+  public createNewAccount(account:Account):Observable<any>{
+    return this._http.post<any>("http://localhost:8000/api/v1/customers/"+account.customerId+"/accounts",account)
+  }
 }

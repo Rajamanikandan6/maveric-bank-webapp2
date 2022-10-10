@@ -12,6 +12,7 @@ import { AuthGuard } from './security/auth.guard';
 import { AuthInterceptor } from './security/AuthInterceptor';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     AccountComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

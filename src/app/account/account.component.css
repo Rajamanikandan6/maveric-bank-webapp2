@@ -8,3 +8,11 @@
     position: fixed;
     right: 0%;
 }
+.alingclass{
+
+    margin-left: 15%;
+
+}
+#mktrans{
+    text-align : right;
+}

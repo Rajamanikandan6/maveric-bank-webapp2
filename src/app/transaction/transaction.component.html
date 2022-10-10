@@ -1,0 +1,57 @@
+
+<app-header></app-header>
+
+<hr>
+
+<br>
+
+<br>
+
+<h4 class="heading" style="text-align: center;">Create Transaction</h4>
+
+<div ng-app = "myApp" class = "container">  
+    <div class = "form-group">
+        <div class="transactionerror" style="background-color: #ef0606;">
+        </div></div>
+  <div class="row">
+
+    <div class="div_class"> 
+        <form #loginform="ngForm" (ngSubmit)="createTransaction()">
+
+        <br>       
+
+        <select class="form-select" id="inp_gender" name="type" [(ngModel)] ="transaction.type">
+
+            <option selected>Transaction Type</option>
+
+            <option value="CREDIT">CREDIT</option>
+
+            <option value="DEBIT">DEBIT</option>
+
+          </select>
+
+        <div class="form-group my-4">
+
+          <input type = "number" id = "cust_id" class = "form-control" placeholder = "*amount" name="amount" [(ngModel)] ="transaction.amount">
+
+        </div>       
+
+        <br><div class="d-grid gap-2 d-md-flex justify-content-md-center">
+
+            <button class="btn btn-primary me-md-2" type="submit">Create</button>
+
+            <button class="btn btn-primary" type="button">Cancel</button>
+
+        </div>
+
+        <br>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<app-footer></app-footer>
