@@ -1,0 +1,18 @@
+.img_class{
+   margin-left: 3%;
+   height: 8%;
+   width: 8%;
+   margin-top: 1%;
+}
+
+.class_footer{
+   margin-left: 25%;
+}
+
+.footer{
+   /* margin-top: 220px; */
+   position: fixed;
+   bottom: 0%;
+   background-color:#214e8f;
+   width: 100%;
+}

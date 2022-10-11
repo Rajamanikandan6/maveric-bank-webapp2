@@ -1,0 +1,104 @@
+<html>
+  <br>
+  <app-header></app-header>
+  <hr>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+    role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class = "form-group">
+            <div class="accounterror" style="background-color: #ef0606;">
+            </div></div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
+                <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <div class = "form-group my-4">
+                <select class="form-select" id="inp_gender">
+
+                  <option selected>Account Type</option>
+                  <option  *ngIf="!typeArr.includes('CURRENT')" value="CURRENT">CURRENT</option>
+                  <option  *ngIf="!typeArr.includes('SAVINGS')" value="SAVINGS">SAVINGS</option>
+                  <!-- <optgroup *ngFor="let accType of customerAccount.account; let accountDet=index">
+                    <option  *ngIf="accType.type != 'CURRENT' && accType.type != 'SAVINGS'" value="CUREENT">CUREENT</option>
+                  <option  *ngIf="accType.type != 'CURRENT' && accType.type != 'SAVINGS'" value="SAVINGS">SAVINGS</option>
+                    </optgroup> -->
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="createAccount()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+  
+  
+    <div *ngFor="let accType of customerAccount.account; let accountDet=index" class="custom-control custom-radio form-check form-check-inline alingclass">
+      <input type="radio" class="custom-control-input" id="{{accType.type}}" name="defaultExampleRadios" (click)="setradio(accType.type)" checked='{{accountDet == count ? "checked" : ""}}'>
+      <label class="custom-control-label" for="defaultChecked">{{accType.type == 'CURRENT' ? "Current Account" : "Saving Account"}}</label>
+    </div>
+
+    <div class="container">
+       <!-- Button trigger modal -->
+       <div id="mktrans">
+  <button type="button" class="btn btn-primary" (click)="openModal()">
+    Create Account
+</button>
+</div>
+        <div class="card shadow mt-5 mb-5">
+            <div class="card-header text-center">
+                <b>Account Details</b>
+            </div>
+            <div class="card-body"> 
+                <p *ngIf="user.firstName">{{user.firstName}} {{user.lastName}} {{user.middleName}}</p>
+                <p *ngIf="account._id">Account No : {{account._id}}</p>
+                <p *ngIf="account.type">{{account.type}} Account</p>
+                <p *ngIf="account.balance.amount">Closing Balance : {{account.balance.amount}}</p>
+            </div>
+        </div>
+        <div id="mktrans">
+        <button type="button" class="btn btn-primary" (click)="redirectToTransaction(account._id)">
+          Make Transaction
+      </button>
+    </div>
+        <div class="card shadow mt-5 mb-5">
+          <div class="card-header text-center">
+            <b>Transaction Details</b>
+        </div>
+            <div class="card-body">
+                  <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Ref Number</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Withdrawal</th>
+                        <th scope="col">Deposit</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let transaction of account.transaction; let transactionDet=index" id="transaction">
+                      <tr>
+                        <td>{{transaction._id}}</td>
+                        <td>{{transaction.createdAt}}</td>
+
+                        <td>{{transaction.type =="DEBIT" ? transaction.amount : ""}}</td>
+                        <td>{{transaction.type =="CREDIT" ? transaction.amount : ""}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><button class="page-link" (click)="previousTransaction()">Previous</button></li>
+                      <li class="page-item"><button class="page-link" (click)="nextTransaction()">Next</button></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </div>
+<app-footer></app-footer>
+</html>

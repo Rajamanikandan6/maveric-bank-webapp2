@@ -1,0 +1,30 @@
+#container_login
+{
+    width:40%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 20px;
+    box-shadow: 3px 3px 3px gray;
+}
+
+
+input{
+    width: 50%;
+    margin-left: 30%;
+    box-shadow: 3px 3px 3px gray;
+}
+
+.hr{
+    border-color:black;
+    border-style: solid;
+}
+#btn_login{
+    margin-left: 50%;
+    box-shadow: 3px 3px 3px gray;
+}
+
+.main_div{
+    height: 100%;
+    overflow: hidden;
+}

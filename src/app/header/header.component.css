@@ -1,0 +1,16 @@
+.header_class{
+    text-align: center;
+    margin-left: 30%;
+}
+
+.head_comp{
+   position: fixed;
+   top: 0%;
+   width: 100%;
+}
+
+.hr_cls{
+    width: 100%;
+    position: fixed;
+    top: 5%;
+}
