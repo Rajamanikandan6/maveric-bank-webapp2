@@ -9,7 +9,7 @@ export class AuthService {
 
   isLoggedIn(){
     console.log("token=====>",localStorage.getItem('token'));
-    return localStorage.getItem('token')!== null;
-    //return true;
+    //return localStorage.getItem('token')!== null;
+    return true;
   }
 }
