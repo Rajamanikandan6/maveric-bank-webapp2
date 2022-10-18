@@ -13,6 +13,8 @@ import { AuthInterceptor } from './security/AuthInterceptor';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
+import {faFontAwesome} from '@fortawesome/free-regular-svg-icons';
+
 @NgModule({
   declarations: [
     AppComponent,

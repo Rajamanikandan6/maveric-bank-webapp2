@@ -1,30 +1,54 @@
 #container_login
 {
-    width:40%;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    margin-top: 20px;
-    box-shadow: 3px 3px 3px gray;
+    width:30%;
+    /* border-style: solid;
+    border-width: 1px; */
+    /* border-color: black; */
+    /* margin-top: 10%; */
+    /* box-shadow: 3px 3px 3px gray; */
+    box-shadow: rgba(16, 16, 16, 0.35) 0px 3px 12px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+    border-radius:5px;   
 }
 
+html{
+    font-family: Roboto;
+}
 
 input{
-    width: 50%;
-    margin-left: 30%;
-    box-shadow: 3px 3px 3px gray;
+    width: 100%;
+    /* margin-left: 30%; */
+    box-shadow: 0px 3px 8px gray;
 }
 
-.hr{
-    border-color:black;
-    border-style: solid;
-}
+
 #btn_login{
-    margin-left: 50%;
-    box-shadow: 3px 3px 3px gray;
+    /* margin-left: 45%; */
+    /* box-shadow: 2px 2px 2px gray; */
+    background-color: #214e8f;
+    color: white;
+    border: none;
+    width: 90px;
+    height: 35px;
+    float: right;
 }
 
-.main_div{
+/* .main_div{
     height: 100%;
     overflow: hidden;
+} */
+
+#msg_class{
+    border-color: red;
+    border-style: solid;
+    border-width: 0.1px;
+    width: 40%;
+    height: 50px;
+    margin-top: 2%;
+    margin-left: 30%;
+    background-color: #f8e8d0;
+    display: none;
 }

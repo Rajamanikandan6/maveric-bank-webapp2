@@ -1,31 +1,30 @@
 <html>
-  <br>
-  <app-header></app-header>
-  <hr>
-<div ng-app = "myApp" class = "container-fluid" id="container_login">
-
-  <div class = "form-group">
-  <div class="javaerror" style="background-color: #ef0606;">
-  </div>
-
-  </div>
+<app-header></app-header>
+<!-- <hr> -->
+<div class="form-group container" id="msg_class">
+  <div class="javaerror">abcd</div>
+</div>
+<div ng-app="myApp" class="container-fluid p-2" id="container_login"> 
+  <label class="fw-bold">Login</label>
   <div class="row">
     <div class="div_class">
-  <form #loginform="ngForm" (ngSubmit)="userLogin()">
-    <div class = "form-group my-4">
-      <input type = "text" id = "name" class = "form-control" placeholder = "*Email" name="email"  [(ngModel)] = "user.email">
+      <form #loginform="ngForm" (ngSubmit)="userLogin()">
+        <div class="form-group my-4">
+          <input type="text" id="name" class="form-control fa fa-envelope" placeholder="*Email" name="email" [(ngModel)]="user.email">
+        </div>
+        <div class="form-group my-4">
+          <input type="password" id="email" class="form-control" placeholder="*Password" name="password"
+            [(ngModel)]="user.password">
+        </div>
+        <div>
+        <button type="submit" class="my-2 btn-float-right" id="btn_login">Login</button>        
+          <a href="/signup" style="text-decoration: none; color: black;" class="fw-bold">Signup</a>
+        </div>
+      </form>
     </div>
-    <div class = "form-group my-4">
-      <input type = "password" id = "email" class = "form-control" placeholder = "*Password" name="password"  [(ngModel)] = "user.password">
-    </div>
-    <button type="submit" class="btn btn-primary my-2" id="btn_login">Login</button>
-       <div class="text-center">
-        <a href="/signup">signup</a>, if you don't have account
-       </div> 
-  </form>
+  </div>
 </div>
-  </div>
-  </div>
-  <br>
+<br>
 <app-footer></app-footer>
+
 </html>

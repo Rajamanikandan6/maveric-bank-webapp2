@@ -1,28 +1,33 @@
-.container-fluid
+/* .container-fluid
 {
     width:70%;
     border-style: solid;
     border-width: 1px;
     border-color: black;
     margin-top: 20px;
-}
+} */
 
+html{
+    font-family: robot;
+}
 input{
-    width: 30%;
-    margin-left: 40%;
+    width: 100%;
 }
 
 select{
-    width: 30%;
-    margin-left: 40%;
+    width: 100%;
 }
 
-.hr{
+/* .hr{
     border-color:black;
     border-style: solid;
-}
+} */
 #btn_signup{
     margin-left: 50%;
+    background-color: #214e8f;
+    color: white;
+    border: none;
+
 }
 
 .input_male{
@@ -31,4 +36,14 @@ select{
 
 .lbl_male{
     margin-left: -180px;
+}
+
+#container_signup{
+    width:30%;
+    box-shadow: rgba(16, 16, 16, 0.35) 0px 3px 12px;    
+    transform: translate(-50%, -50%); 
+    border-radius:5px;
+    margin-top: 35%;
+    margin-left: 50%;
+    position: absolute;
 }

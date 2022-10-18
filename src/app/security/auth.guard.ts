@@ -19,7 +19,5 @@ constructor(private authService:AuthService,private router:Router){
         }
             this.router.navigate(['/']);
             return false;
-
     }
-
 }

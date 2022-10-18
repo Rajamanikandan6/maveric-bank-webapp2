@@ -1,16 +1,25 @@
-.header_class{
-    text-align: center;
-    margin-left: 30%;
-}
-
-.head_comp{
+/* .head_comp{
    position: fixed;
    top: 0%;
    width: 100%;
-}
+} */
 
-.hr_cls{
-    width: 100%;
+.header{
+    /* margin-top: 220px; */
     position: fixed;
-    top: 5%;
+    top: 0%;
+    width: 100%;
+ }
+
+ .header_class{
+    margin-left: 0%;
+ }
+
+ hr{
+    /* border-color:black;
+    border-style: solid;  */
+        width: 100%;
+        position: fixed;
+        margin-top: 4%;
+        box-shadow: 1px 1px 0.5px 1px black;
 }
